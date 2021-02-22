@@ -16,7 +16,7 @@ public class HttpControllerTest {
     //Member에서 @Build를 붙여서 이제 요런 식으로 쓸 수 있음
     //그전에는
     //Member m=new Member(1, "keb", "keb1234", "keb@nate.com"); 이렇게 넣었음
-    //
+    //순서대로 멤버 id, username, password, email 넣을 수 밖에 없었음. 하나라도 빠지면 오류
         Member m=Member.builder().username("keb").password("1234").email("keb@nate.com").build();
         System.out.println(TAG+" : getter: "+m.getId()+": username: "+m.getUsername());
         m.setId(5000);
