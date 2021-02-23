@@ -23,7 +23,7 @@ public class User {
     //TABLE ->테이블에 번호를 만들어 그걸 쓰겠다
     //AUTO는 자동
     private int id; //auto-increment
-    @Column(nullable = false, length=30)
+    @Column(nullable = false, length=30, unique = true)
     private String username; //id에 해당
     @Column(nullable=false, length=100) //password는 나중에 해쉬함수로 암호화할 예정
     private String password;
