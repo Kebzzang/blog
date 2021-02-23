@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.*;
 
 //사용자가 요청->응답(HTML 파일)
 //@Controller
-//사용자가 요청->응답(데이터)
-@RestController
+
+@RestController //사용자가 요청->응답(데이터 Json 형태로 반환)
 
 public class HttpControllerTest {
     //인터넷 브라우저 요청은 무조건 get 요청밖에 할 수 없다
