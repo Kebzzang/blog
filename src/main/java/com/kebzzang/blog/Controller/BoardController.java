@@ -28,9 +28,14 @@ public class BoardController {
     }
     @GetMapping("/board/{id}")
     public String findById(@PathVariable int id, Model model){
-        model.addAttribute("board",boardService.viewBoard(id));
+        model.addAttribute("board",boardService.viewPost(id));
         return "board/detail";
 
+    }
+    @GetMapping("/board/{id}/updateForm")
+    public String updateForm(@PathVariable int id, Model model){
+        model.addAttribute("board", boardService.viewPost(id));
+        return "board/updateForm";
     }
     //USER 권한이 필요
     @GetMapping("/board/saveForm")

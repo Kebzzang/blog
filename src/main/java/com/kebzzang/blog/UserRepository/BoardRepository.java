@@ -7,5 +7,4 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 
     //Optional<User> findByUsername(String username);
 
-
 }

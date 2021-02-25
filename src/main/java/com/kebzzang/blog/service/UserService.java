@@ -38,10 +38,10 @@ public class UserService {
     public User LogIn(User user){
         return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
     }*/
-
+    @Transactional
     public String idCheck(String userName){ //가입 시 아이디 중복 체크용
         System.out.println(userRepository.findByUsername(userName));
-        if(userRepository.findByUsername(userName)==null)
+        if(userRepository.findByUsername(userName).isEmpty())
             return "YES";
         else return "NO";
     }
