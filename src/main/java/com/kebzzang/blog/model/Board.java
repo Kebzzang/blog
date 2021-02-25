@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 
-@Data
+@Data //게터 세터
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -28,7 +27,6 @@ public class Board {
     @Lob //대용량 데이터
     private String content; //섬머노트 라이브러리 <html 태그가 섞여서 디자인됨 그래서 크기가 매우 큼
 
-    @ColumnDefault("0")
     private int count; //이건 조회수
 
     @ManyToOne(fetch=FetchType.EAGER) //보드가 Many 유저는 One.
