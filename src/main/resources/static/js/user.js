@@ -19,7 +19,7 @@ let index={
             this.update();
         })
 
-        $('.myButton').on("click", ()=>{
+        $('.btn-idcheck').on("click", ()=>{
             $.ajax({
                 type: "GET",
                 url: "/auth/idCheck",

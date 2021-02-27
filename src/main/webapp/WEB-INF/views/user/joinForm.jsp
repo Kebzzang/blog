@@ -11,7 +11,7 @@
             <input type="text" class="form-control" placeholder="Enter username" id="username">
         </div>
             <div class="col">
-            <input type="button" class="myButton" id="temp" value="중복체크">
+            <input type="button" class="btn-idcheck" id="temp" value="중복체크">
             </div>
             </div>
             <div class="text-left small mt-2" id="checkMsg" style="color: red"></div>

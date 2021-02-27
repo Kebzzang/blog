@@ -37,7 +37,4 @@ public class User {
     @CreationTimestamp ///시간이 자동으로 입력됨 테이블에 인서트될 때 id와 같이 비워놔도 자동으로 채워짐
     private Timestamp createDate;
 
-
-
-
 }

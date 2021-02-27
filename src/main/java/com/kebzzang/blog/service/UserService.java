@@ -32,8 +32,6 @@ public class UserService {
         userRepository.save(user);
 
     }
-
-
     //select 할 때 트랜잭션 시작, 서비스 종료 시에 트랜잭션 종료(정합성)
    /* @Transactional(readOnly=true)
     public User LogIn(User user){
@@ -58,7 +56,10 @@ public class UserService {
 
         //회원 수정 함수 종료시 === 서비스 종료시===트랜잭션이 종료됨 ===커밋이 자동으로 됨
         //영속화된 persistance 객체의 변화가 감지되면 더티체킹 ->update믄 날려줌
-
-
+    }
+    @Transactional(readOnly = true)
+    public User findUser(String username){
+        User user=userRepository.findByUsername(username).orElseGet(User::new);
+        return user;
     }
 }
