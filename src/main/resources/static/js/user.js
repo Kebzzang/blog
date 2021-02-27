@@ -77,6 +77,7 @@ let index={
     update:function(){
         //alert('user의 save 함수가 호출됨');
         let data={ //값을 바인딩
+            username: $("#username").val(),
             id: $("#id").val(),
             password: $("#password").val(),
             email: $("#email").val()
