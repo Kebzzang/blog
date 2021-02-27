@@ -70,7 +70,7 @@ let index={
             //요청 정상이면 수행
             alert("글 수정 완료");
             console.log(resp);
-            location.href="/"
+            location.href="/board/"+id;
         }).fail(function(error){
             alert(JSON.stringify(error));
         }); //ajax 통신을 이용해 3개의 데이터를 json으로 변경해 insert 요청

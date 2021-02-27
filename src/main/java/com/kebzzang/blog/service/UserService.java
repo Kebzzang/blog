@@ -45,4 +45,17 @@ public class UserService {
             return "YES";
         else return "NO";
     }
+    @Transactional
+    public void UpdateUser(User user){
+        //수정 시에는 영속성 컨텍스트 내 유저 오브젝트를 영속화시키고 영속화된 유저 오브젝트를 수정
+        User persistance=userRepository.findById(user.getId()).orElseThrow(()-> new IllegalArgumentException("회원 찾기 실패"));
+        String rawPassword=user.getPassword();
+        String encPassword=encoder.encode(rawPassword);
+        persistance.setPassword(encPassword);
+        persistance.setEmail(user.getEmail());
+
+        //회원 수정 함수 종료시 === 서비스 종료시===트랜잭션이 종료됨 ===커밋이 자동으로 됨
+        //영속화된 persistance 객체의 변화가 감지되면 더티체킹 ->update믄 날려줌
+
+    }
 }
