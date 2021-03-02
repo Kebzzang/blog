@@ -31,6 +31,7 @@ public class User {
     private String email;
    /* @ColumnDefault("'user'") //문자임을 알리기 위해 "''"    */
 
+    private String oauth; //카카오, 구글, 일반 로그인인지 구분함
     @Enumerated(EnumType.STRING) //DB에는 RoleType이라는 게 없어서 RoleType이 STRING이라고 명시함함
    private RoleType role; //사실 enum을 쓰는 게 좋음. 회원이 회원가입->기본적으로 어드민(관리자), 유저, 매니저 등등 권한을 줄 수 있음
 

@@ -1,7 +1,7 @@
 package com.kebzzang.blog.config.auth;
 
 
-import com.kebzzang.blog.UserRepository.UserRepository;
+import com.kebzzang.blog.repository.UserRepository;
 import com.kebzzang.blog.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

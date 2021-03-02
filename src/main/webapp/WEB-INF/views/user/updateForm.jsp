@@ -17,11 +17,12 @@
             <label for="email">Email</label>
             <input type="email" class="form-control" value="${principal.user.email}" placeholder="Enter email" id="email">
         </div>
+        <c:if test="${empty principal.user.oauth}">
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control"  placeholder="Enter password" id="password">
         </div>
-
+        </c:if>
 
     </form>
     <button id="btn-update" class="btn btn-primary">정보수정</button>

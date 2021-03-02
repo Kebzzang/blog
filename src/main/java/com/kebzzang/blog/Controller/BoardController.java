@@ -42,4 +42,5 @@ public class BoardController {
     public String saveForm(){
         return "board/saveForm";
     }
+
 }

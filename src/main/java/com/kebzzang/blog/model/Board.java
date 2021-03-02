@@ -1,5 +1,6 @@
 package com.kebzzang.blog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,12 +36,14 @@ public class Board {
     private User user; //DB는 오브젝트를 저장할 수 없음. FK, 자바는 오브젝트를 저장할 수 있음음
     //유저 테이블을 참고 -> 포린키로 유저아이디 생성
 
-    @OneToMany(mappedBy="board", fetch=FetchType.EAGER) //mappedBy 연관관계의 주인이 아니다 (=난 FK 가 아님)
+    @OneToMany(mappedBy="board", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE) //mappedBy 연관관계의 주인이 아니다 (=난 FK 가 아님)
     // DB에 리플라이 컬럼 만들지 말라 나는 그냥 보드를 셀렉트할 때 조인문을 통해 값을 얻기 위해 필요함!!
     //리플라이 클래스에 있는 private Board board에서 board, 페치타입은 레이지 -> 필요하면 가져오겠다
     //하지만 우리는 게시글 상세보기에 댓글을 펼쳐서 보기가 아니라 바로 보기이므로 EAGER로 함
     //@JoinColumn //이 어노테이션이 들어오면 정규성 위배
-    private List<Reply> reply; //게시글 보드는 리플라이 정보도 들고 있어야 함
+    @JsonIgnoreProperties({"board"})
+    @OrderBy("id desc")
+    private List<Reply> replys; //게시글 보드는 리플라이 정보도 들고 있어야 함
     //리플라이는 딱 하나가 아니므로 리스트로 가지고 있어야함
     @CreationTimestamp
     private Timestamp createDate;

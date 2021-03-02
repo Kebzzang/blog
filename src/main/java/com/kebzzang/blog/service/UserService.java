@@ -1,7 +1,7 @@
 package com.kebzzang.blog.service;
 
 
-import com.kebzzang.blog.UserRepository.UserRepository;
+import com.kebzzang.blog.repository.UserRepository;
 import com.kebzzang.blog.model.RoleType;
 import com.kebzzang.blog.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,13 +49,17 @@ public class UserService {
     public void UpdateUser(User user){
         //수정 시에는 영속성 컨텍스트 내 유저 오브젝트를 영속화시키고 영속화된 유저 오브젝트를 수정
         User persistance=userRepository.findById(user.getId()).orElseThrow(()-> new IllegalArgumentException("회원 찾기 실패"));
-        String rawPassword=user.getPassword();
-        String encPassword=encoder.encode(rawPassword);
-        persistance.setPassword(encPassword);
-        persistance.setEmail(user.getEmail());
+
+
 
         //회원 수정 함수 종료시 === 서비스 종료시===트랜잭션이 종료됨 ===커밋이 자동으로 됨
         //영속화된 persistance 객체의 변화가 감지되면 더티체킹 ->update믄 날려줌
+        if (persistance.getOauth()==null||persistance.getOauth().equals("")){  //카카오라고 적힌 애들은 이거 못함함
+           String rawPassword=user.getPassword();
+            String encPassword=encoder.encode(rawPassword);
+            persistance.setPassword(encPassword);
+        }
+        persistance.setEmail(user.getEmail());
     }
     @Transactional(readOnly = true)
     public User findUser(String username){

@@ -22,7 +22,33 @@
         <div>
           <div>${board.content}</div>
              </div>
+<hr/>
+    <div class="input-group mb-3">
+        <input type="hidden" id="userId" value="${principal.user.id}"/>
+        <input type="hidden" id="boardId" value="${board.id}"/>
+        <textarea id="reply-content" type="text" class="form-control" placeholder="Leave your comment here..."></textarea>
+        <div class="input-group-append">
+            <button id="btn-reply-save" class="btn btn-light test" type="button">✏</button>
+        </div>
+    </div>
+<br/>
+    <div class="card">
+        <div class="card-header">Comments</div>
+        <ul class="list-group" id="reply--box">
+            <c:forEach var="reply" items="${board.replys}">
+                <li class="list-group-item d-flex justify-content-between" id="${reply.id}">
+                    <div>${reply.content} </div>
 
+                    <div class="d-flex ">
+                        <div class="font-italic"> 작성자: ${reply.user.username}&nbsp;&nbsp;</div>   <c:if test="${reply.user.id==principal.user.id}">
+                        <button onClick="index.replyDelete(${board.id}, ${reply.id})" class="badge badge-secondary">삭제</button>
+                    </c:if>
+                    </div>
+                </li>
+            </c:forEach>
+
+        </ul>
+    </div>
 </div>
 <br/>
 <script>
@@ -33,3 +59,10 @@
 </script>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>
+<style>
+.test{
+    width:60px;
+}
+
+
+</style>

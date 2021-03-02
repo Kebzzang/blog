@@ -1,4 +1,4 @@
-package com.kebzzang.blog.UserRepository;
+package com.kebzzang.blog.repository;
 
 import com.kebzzang.blog.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

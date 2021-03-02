@@ -19,7 +19,7 @@ public class Reply {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable=false, length=200)
+    @Column(nullable=false, length=500)
     private String content;
 
     @ManyToOne //여러개의리플라이는 한개의 게시글에 속함
@@ -32,4 +32,10 @@ public class Reply {
 
     @CreationTimestamp
     private Timestamp createTime;
+    @Override
+    public String toString() {
+        return "Reply [id=" + id + ", content=" + content + ", board=" + board + ", user=" + user + ", createDate="
+                + createTime + "]";
+    }
+
 }

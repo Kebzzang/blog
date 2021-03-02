@@ -1,6 +1,6 @@
 package com.kebzzang.blog.test;
 
-import com.kebzzang.blog.UserRepository.UserRepository;
+import com.kebzzang.blog.repository.UserRepository;
 import com.kebzzang.blog.model.RoleType;
 import com.kebzzang.blog.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
