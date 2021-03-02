@@ -28,6 +28,7 @@ public class BoardController {
     }
     @GetMapping("/board/{id}")
     public String findById(@PathVariable int id, Model model){
+        boardService.hitUp(id);
         model.addAttribute("board",boardService.viewPost(id));
         return "board/detail";
 

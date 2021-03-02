@@ -28,7 +28,7 @@ public class Board {
     @Lob //대용량 데이터
     private String content; //섬머노트 라이브러리 <html 태그가 섞여서 디자인됨 그래서 크기가 매우 큼
 
-    private int count; //이건 조회수
+    private int cnt; //이건 조회수
 
     @ManyToOne(fetch=FetchType.EAGER) //보드가 Many 유저는 One.
     //항상 함께 로드되어야 하는 조건을 가진 엔티티에 대해선 EAGER 방식
